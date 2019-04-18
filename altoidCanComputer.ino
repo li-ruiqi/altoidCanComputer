@@ -38,16 +38,12 @@ void drawArrowBitmap(const uint8_t *ARROW, int color, int x, int y, bool isBold)
   else
     tft.drawRectangle(x, y, x + 31, y + 31, 0x0000);
 }
-void NONSELECT()
-{
-  drawArrowBitmap(ARROW_BACK, 0xFFFF, 5, tft.maxY() - 38, false);
-  drawArrowBitmap(ARROW_NEXT, 0xFFFF, tft.maxX() - 38, tft.maxY() - 38, false);
-}
 void screenClear()
 {
   tft.clear();
   tft.drawRectangle(0, 0, tft.maxX() - 1, tft.maxY() - 1, COLOR_WHITE);
-  void NONSELECT();
+  drawArrowBitmap(ARROW_BACK, 0xFFFF, 5, tft.maxY() - 38, false);
+  drawArrowBitmap(ARROW_NEXT, 0xFFFF, tft.maxX() - 38, tft.maxY() - 38, false);
 }
 
 void text_presentation(int SCREEN_val)
@@ -60,6 +56,29 @@ void text_presentation(int SCREEN_val)
     tft.drawText(43, 23, "(TM)! This was progr-", 0xFFFF);
     tft.drawText(43, 32, "amed by ", 0xFFFF);
     tft.drawText(92, 32, "Ruiqi Li", 0xFFE0);
+  }
+  if(SCREEN_val == 2)
+  {
+    tft.drawText(43, 5, "Materials are bought", 0xFFFF);
+    tft.drawText(43, 14, "from amazon/adafru-", 0xFFFF);
+    tft.drawText(43, 23, "it. Materials are:", 0xFFFF);
+    tft.drawRectangle(65, 35, 66, 36, 0xFFFF);
+    
+    tft.drawText(69, 32, "Arduino Nano", 0xFFFF);
+    tft.drawRectangle(65, 35, 66, 36, 0x001F);
+    
+    tft.drawText(69, 41, "Li-Ion battery", 0xFFFF);
+    tft.drawRectangle(65, 44, 66, 45, 0x001F);
+    
+    tft.drawText(69, 50, "Buttons (5)", 0xFFFF);
+    tft.drawRectangle(65, 53, 66, 54, 0x001F);
+    
+    tft.drawText(69, 50, "Powerboost 500", 0xFFFF);
+    tft.drawText(69, 59, "charger (Adafruit)", 0xFFFF);
+    tft.drawRectangle(65, 53, 66, 54, 0x001F);
+
+    tft.drawText(69, 68, "3.5\" TFT screen", 0xFFFF);
+    tft.drawRectangle(65, 71, 66, 72, 0x001F);
   }
 }
 
@@ -74,11 +93,9 @@ void setup() {
   pinMode(BUTTON_RIGHT, INPUT_PULLUP);
   pinMode(BUTTON_LEFT, INPUT_PULLUP);
   pinMode(BUTTON_ENTER, INPUT_PULLUP);
-
+  
   tft.setOrientation(1);
-  tft.drawRectangle(0, 0, tft.maxX() - 1, tft.maxY() - 1, COLOR_WHITE);
-
-  NONSELECT();
+  screenClear();
 }
 
 int button = -1;
