@@ -49,6 +49,8 @@ void screenClear()
 void text_presentation(int SCREEN_val)
 {
   tft.setFont(Terminal6x8);
+  tft.drawText(5,5,String(SCREEN_val), 0x07E0);
+  
   if(SCREEN_val == 1)
   {
     tft.drawText(43, 5, "Hi! Welcome to the", 0xFFFF);
@@ -57,7 +59,7 @@ void text_presentation(int SCREEN_val)
     tft.drawText(43, 32, "amed by ", 0xFFFF);
     tft.drawText(92, 32, "Ruiqi Li", 0xFFE0);
   }
-  if(SCREEN_val == 2)
+  else if(SCREEN_val == 2)
   {
     tft.drawText(43, 5, "Materials are bought", 0xFFFF);
     tft.drawText(43, 14, "from amazon/adafru-", 0xFFFF);
@@ -79,6 +81,20 @@ void text_presentation(int SCREEN_val)
 
     tft.drawText(69, 68, "3.5\" TFT screen", 0xFFFF);
     tft.drawRectangle(65, 71, 66, 72, 0x001F);
+
+    tft.drawText(69, 77, "A Altoid Tin.", 0xFFFF);
+    tft.drawRectangle(65, 80, 66, 81, 0x001F);
+  }
+  else if(SCREEN_val == 3)
+  {
+    tft.drawText(43, 5, "Code for this is on", 0xFFFF);
+    tft.drawText(43, 14, "GitHub. GitHub is a", 0xFFFF);
+    tft.drawText(43, 23, "very useful version", 0xFFFF);
+    tft.drawText(43, 32, "contorl site. It", 0xFFFF);
+    tft.drawText(43, 41, "was very helpful", 0xFFFF);
+    tft.drawText(43, 50, "when I needed prev-", 0xFFFF);
+    tft.drawText(43, 59, "ious versions for ", 0xFFFF);
+    tft.drawText(43, 68, "testing", 0xFFFF);
   }
 }
 
