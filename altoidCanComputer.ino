@@ -123,7 +123,7 @@ void text_presentation(int SCREEN_val)
   else if(SCREEN_val == 7)
   {
     tft.drawText(43, 5, "Cool stuff I can do:", COLOR_WHITE);
-    tft.drawText(43, 5, "Color text:", COLOR_WHITE);
+    tft.drawText(43, 14, "Color text:", COLOR_WHITE);
     tft.drawText(43, 23, "Red", COLOR_RED);
     tft.drawText(43, 32, "Orange", COLOR_ORANGE);
     tft.drawText(43, 41, "Yellow", COLOR_YELLOW);
