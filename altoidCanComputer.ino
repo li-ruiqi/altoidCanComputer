@@ -53,65 +53,84 @@ void text_presentation(int SCREEN_val)
   
   if(SCREEN_val == 1)
   {
-    tft.drawText(43, 5, "Hi! Welcome to the", 0xFFFF);
-    tft.drawText(43, 14, "AltoidTinComputer", 0xFFE0);
-    tft.drawText(43, 23, "(TM)! This was progr-", 0xFFFF);
-    tft.drawText(43, 32, "amed by ", 0xFFFF);
-    tft.drawText(92, 32, "Ruiqi Li", 0xFFE0);
+    tft.drawText(43, 5, "Hi! Welcome to the", COLOR_WHITE);
+    tft.drawText(43, 14, "AltoidTinComputer", COLOR_YELLOW);
+    tft.drawText(43, 23, "(TM)! This was progr-", COLOR_WHITE);
+    tft.drawText(43, 32, "amed by ", COLOR_WHITE);
+    tft.drawText(92, 32, "Ruiqi Li", COLOR_YELLOW);
   }
   else if(SCREEN_val == 2)
   {
-    tft.drawText(43, 5, "Materials are bought", 0xFFFF);
-    tft.drawText(43, 14, "from amazon/adafru-", 0xFFFF);
-    tft.drawText(43, 23, "it. Materials are:", 0xFFFF);
-    tft.drawRectangle(65, 35, 66, 36, 0xFFFF);
+    tft.drawText(43, 5, "Materials are bought", COLOR_WHITE);
+    tft.drawText(43, 14, "from amazon/adafru-", COLOR_WHITE);
+    tft.drawText(43, 23, "it. Materials:", COLOR_WHITE);
+    tft.drawRectangle(65, 35, 66, 36, COLOR_WHITE);
     
-    tft.drawText(69, 32, "Arduino Nano", 0xFFFF);
-    tft.drawRectangle(65, 35, 66, 36, 0x001F);
+    tft.drawText(69, 32, "Arduino Nano", COLOR_WHITE);
+    tft.drawRectangle(65, 35, 66, 36, COLOR_BLUE);
     
-    tft.drawText(69, 41, "Li-Ion battery", 0xFFFF);
-    tft.drawRectangle(65, 44, 66, 45, 0x001F);
+    tft.drawText(69, 41, "Li-Ion battery", COLOR_WHITE);
+    tft.drawRectangle(65, 44, 66, 45, COLOR_BLUE);
     
-    tft.drawText(69, 50, "Buttons (5)", 0xFFFF);
-    tft.drawRectangle(65, 53, 66, 54, 0x001F);
+    tft.drawText(69, 50, "Buttons (5)", COLOR_WHITE);
+    tft.drawRectangle(65, 53, 66, 54, COLOR_BLUE);
     
-    tft.drawText(69, 50, "Powerboost 500", 0xFFFF);
-    tft.drawText(69, 59, "charger (Adafruit)", 0xFFFF);
-    tft.drawRectangle(65, 53, 66, 54, 0x001F);
+    tft.drawText(69, 50, "Powerboost 500", COLOR_WHITE);
+    tft.drawText(69, 59, "charger (Adafruit)", COLOR_WHITE);
+    tft.drawRectangle(65, 53, 66, 54, COLOR_BLUE);
 
-    tft.drawText(69, 68, "3.5\" TFT screen", 0xFFFF);
-    tft.drawRectangle(65, 71, 66, 72, 0x001F);
+    tft.drawText(69, 68, "3.5\" TFT screen", COLOR_WHITE);
+    tft.drawRectangle(65, 71, 66, 72, COLOR_BLUE);
 
-    tft.drawText(69, 77, "An Altoid Tin.", 0xFFFF);
-    tft.drawRectangle(65, 80, 66, 81, 0x001F);
+    tft.drawText(69, 77, "An Altoid Tin.", COLOR_WHITE);
+    tft.drawRectangle(65, 80, 66, 81, COLOR_BLUE);
   }
   else if(SCREEN_val == 3)
   {
-    tft.drawText(43, 5, "Code for this is on", 0xFFFF);
-    tft.drawText(43, 14, "GitHub. GitHub is a", 0xFFFF);
-    tft.drawText(43, 23, "very useful version", 0xFFFF);
-    tft.drawText(43, 32, "contorl site. Whee!", 0xFFFF);
-    tft.drawText(43, 41, "I use it a lot. -_-", 0xFFFF);
+    tft.drawText(43, 5, "Code for this is on", COLOR_WHITE);
+    tft.drawText(43, 14, "GitHub. GitHub is a", COLOR_WHITE);
+    tft.drawText(43, 23, "very useful version", COLOR_WHITE);
+    tft.drawText(43, 32, "contorl site. Whee!", COLOR_WHITE);
+    tft.drawText(43, 41, "I use it a lot. -_-", COLOR_WHITE);
   }
   else if(SCREEN_val == 4)
   {
-    tft.drawText(43, 5, "The code that displays", 0xFFFF);
-    tft.drawText(43, 14, "thing on the TFT LCD", 0xFFFF);
-    tft.drawText(43, 23, "screen is from the", 0xFFFF);
-    tft.drawText(43, 32, "libary:", 0xFFFF);
-    tft.drawText(43, 41, "TFT_22_ILI9225.h", 0x07FF);
-    tft.drawText(43, 50, "from GitHub.", 0xFFFF);
+    tft.drawText(43, 5, "The code that displays", COLOR_WHITE);
+    tft.drawText(43, 14, "thing on the TFT LCD", COLOR_WHITE);
+    tft.drawText(43, 23, "screen is from the", COLOR_WHITE);
+    tft.drawText(43, 32, "libary:", COLOR_WHITE);
+    tft.drawText(43, 41, "TFT_22_ILI9225.h", COLOR_CYAN);
+    tft.drawText(43, 50, "from GitHub.", COLOR_WHITE);
   }
   else if(SCREEN_val == 5)
   {
-    tft.drawText(43, 5, "I want to thank my", 0xFFFF);
-    tft.drawText(43, 14, "dad for buying stuff", 0xFFFF);
-    tft.drawText(43, 23, "and supporting me.", 0xFFFF);
-    tft.drawText(43, 32, "I enjoyed doing this", 0xFFFF);
-    tft.drawText(43, 41, "project. It was cool", 0xFFFF);
-    tft.drawText(43, 50, "BTW i was listening to", 0xFFFF);
-    tft.drawText(43, 59, "UNDERTALE music while", 0xFFFF);
-    tft.drawText(43, 68, "coding this", 0xFFFF);
+    tft.drawText(43, 5, "I want to thank my", COLOR_WHITE);
+    tft.drawText(43, 14, "dad for buying stuff", COLOR_WHITE);
+    tft.drawText(43, 23, "and supporting me.", COLOR_WHITE);
+    tft.drawText(43, 32, "I enjoyed doing this", COLOR_WHITE);
+    tft.drawText(43, 41, "project. It was cool", COLOR_WHITE);
+    tft.drawText(43, 50, "BTW i was listening to", COLOR_WHITE);
+    tft.drawText(43, 59, "UNDERTALE music while", COLOR_WHITE);
+    tft.drawText(43, 68, "coding this", COLOR_WHITE);
+  }
+  else if(SCREEN_val == 6)
+  {
+    tft.drawText(43, 5, "The NEXT and BACK", COLOR_WHITE);
+    tft.drawText(43, 14, "buttons on the screen", COLOR_WHITE);
+    tft.drawText(43, 23, "(bitmaps) are made in", COLOR_WHITE);
+    tft.drawText(43, 32, "a font maker(don't ask)", COLOR_WHITE);
+  }
+  else if(SCREEN_val == 7)
+  {
+    tft.drawText(43, 5, "Cool stuff I can do:", COLOR_WHITE);
+    tft.drawText(43, 5, "Color text:", COLOR_WHITE);
+    tft.drawText(43, 23, "Red", COLOR_RED);
+    tft.drawText(43, 32, "Orange", COLOR_ORANGE);
+    tft.drawText(43, 41, "Yellow", COLOR_YELLOW);
+    tft.drawText(43, 50, "Green", COLOR_GREEN);
+    tft.drawText(43, 59, "Blue", COLOR_BLUE);
+    tft.drawText(43, 68, "Indigo", COLOR_INDIGO);
+    tft.drawText(43, 77, "Purple", COLOR_VIOLET);
   }
 }
 
