@@ -82,7 +82,7 @@ void text_presentation(int SCREEN_val)
     tft.drawText(69, 68, "3.5\" TFT screen", 0xFFFF);
     tft.drawRectangle(65, 71, 66, 72, 0x001F);
 
-    tft.drawText(69, 77, "A Altoid Tin.", 0xFFFF);
+    tft.drawText(69, 77, "An Altoid Tin.", 0xFFFF);
     tft.drawRectangle(65, 80, 66, 81, 0x001F);
   }
   else if(SCREEN_val == 3)
@@ -90,11 +90,28 @@ void text_presentation(int SCREEN_val)
     tft.drawText(43, 5, "Code for this is on", 0xFFFF);
     tft.drawText(43, 14, "GitHub. GitHub is a", 0xFFFF);
     tft.drawText(43, 23, "very useful version", 0xFFFF);
-    tft.drawText(43, 32, "contorl site. It", 0xFFFF);
-    tft.drawText(43, 41, "was very helpful", 0xFFFF);
-    tft.drawText(43, 50, "when I needed prev-", 0xFFFF);
-    tft.drawText(43, 59, "ious versions for ", 0xFFFF);
-    tft.drawText(43, 68, "testing", 0xFFFF);
+    tft.drawText(43, 32, "contorl site. Whee!", 0xFFFF);
+    tft.drawText(43, 41, "I use it a lot. -_-", 0xFFFF);
+  }
+  else if(SCREEN_val == 4)
+  {
+    tft.drawText(43, 5, "The code that displays", 0xFFFF);
+    tft.drawText(43, 14, "thing on the TFT LCD", 0xFFFF);
+    tft.drawText(43, 23, "screen is from the", 0xFFFF);
+    tft.drawText(43, 32, "libary:", 0xFFFF);
+    tft.drawText(43, 41, "TFT_22_ILI9225.h", 0x07FF);
+    tft.drawText(43, 50, "from GitHub.", 0xFFFF);
+  }
+  else if(SCREEN_val == 5)
+  {
+    tft.drawText(43, 5, "I want to thank my", 0xFFFF);
+    tft.drawText(43, 14, "dad for buying stuff", 0xFFFF);
+    tft.drawText(43, 23, "and supporting me.", 0xFFFF);
+    tft.drawText(43, 32, "I enjoyed doing this", 0xFFFF);
+    tft.drawText(43, 41, "project. It was cool", 0xFFFF);
+    tft.drawText(43, 50, "BTW i was listening to", 0xFFFF);
+    tft.drawText(43, 59, "UNDERTALE music while", 0xFFFF);
+    tft.drawText(43, 68, "coding this", 0xFFFF);
   }
 }
 
