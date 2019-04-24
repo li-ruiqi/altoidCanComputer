@@ -15,9 +15,31 @@
 #define BUTTON_DOWN 5
 #define BUTTON_RIGHT 6
 #define BUTTON_LEFT 3
-#define BUTTON_ENTER 2
+#define BUTTON_ENTER 2 
 
 TFT_22_ILI9225 tft = TFT_22_ILI9225(TFT_RST, TFT_RS, TFT_CS, TFT_LED, TFT_BRIGHTNESS);
+
+struct vector
+{
+  float x;
+  float y;
+  vector()
+  {
+    x = 1;
+    y = 1;
+  }
+};
+
+struct pt
+{
+  float x;
+  float y;
+  pt()
+  {
+    x = 1;
+    y = 1;
+  }
+};
 
 const uint8_t ARROW_BACK[] PROGMEM = {
       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x60, 0x00, 0x00, 0x00, 0xF0, 0xFF, 0xFF, 0x0F, 0xF0, 0xFF, 0xFF, 0x0F, 0x60, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x80, 0x01, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x38, 0x84, 0x97, 0x01, 0x48, 0xCA, 0xD0, 0x00, 0x48, 0x51, 0x70, 0x00, 0x38, 0x5F, 0x30, 0x00, 0x48, 0x51, 0x70, 0x00, 0x48, 0xD1, 0xD0, 0x00, 0x38, 0x91, 0x97, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // Code for char "
@@ -46,7 +68,42 @@ void screenClear()
   drawArrowBitmap(ARROW_NEXT, 0xFFFF, tft.maxX() - 38, tft.maxY() - 38, false);
 }
 
-void text_presentation(int SCREEN_val)
+void pingPong()
+{
+  vector ballDir;
+  pt ball;
+  pt rect;
+  bool isLive = true;
+  while(isLive)
+  {
+    //tft.fillCircle(int(ball.x + 0.5), int(ball.y), 3, COLOR_BLACK);
+    ball.x += ballDir.x;
+    ball.y += ballDir.y;
+    if(ball.x <= 0)
+    {
+      ballDir.x = -ballDir.x;
+      ballDir.x += random(0,20)/10;
+    }
+    if(ball.y <= 0)
+    {
+      ballDir.y = -ballDir.y;
+      ballDir.y += random(0,20)/10;
+    }
+    if(ball.x + 6 >= tft.maxX())
+    {
+      ballDir.x = -ballDir.x;
+      ballDir.x -= random(0,20)/10;
+    }
+    if(ball.y + 6 >= tft.maxY())
+    {
+      ballDir.y = -ballDir.y;
+      ballDir.y -= random(0,20)/10;
+    }
+    tft.fillCircle(int(ball.x + 0.5), int(ball.y), 3, COLOR_WHITE);
+  }
+}
+
+int text_presentation(int SCREEN_val)
 {
   tft.setFont(Terminal6x8);
   tft.drawText(5,5,String(SCREEN_val), 0x07E0);
@@ -189,9 +246,12 @@ void loop(){
       else if(button == 2)
       {
         screenClear();
-        SCREEN_val ++;
+        if(SCREEN_val < 9)
+          SCREEN_val ++;
         button = -1;
         text_presentation(SCREEN_val);
+        if(SCREEN_val == 9);
+          pingPong();
       }
       else if(button == 3)
       {
@@ -200,7 +260,8 @@ void loop(){
           SCREEN_val --;
         button = -1;
         text_presentation(SCREEN_val);
+        if(SCREEN_val == 9);
+          pingPong();
       }
-      
     }
 }
